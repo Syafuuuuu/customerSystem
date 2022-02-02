@@ -154,8 +154,7 @@ public class customerSystem {
     
         //Check if the ID has made an order
         for(int i = 0; i<orderCount; i++){
-            if(ID.equals(order[i][0])){
-            }else{
+            if (!ID.equals(order[i][0])) {
                 errorCount++;
             }
 
