@@ -18,7 +18,7 @@ public class customerSystem {
 
         //---------------------------------------------------Main menu Loop---------------------------------------------------
         do{
-        int choice = 0;
+        int choice;
         BORDER();
         System.out.println("What function would you like to access?");
         System.out.println("Customer registration - 1");
@@ -32,10 +32,11 @@ public class customerSystem {
         choice = in.nextInt();
         BORDER();
 
-        //---------------------------------------------------Chocies of methods---------------------------------------------------
+        //---------------------------------------------------Choices of methods---------------------------------------------------
             switch(choice){
                 case 1: custCount = custReg(customer, custCount); break;
-                case 2: orderCount = addOrder(orders, orderCount, customer, custCount);; break;
+                case 2: orderCount = addOrder(orders, orderCount, customer, custCount);
+                    break;
                 case 3: pastOrder(orders, orderCount); break;
                 case 4: editCust(customer, custCount); break;
                 case 5: listCust(customer, custCount, orders, orderCount); break;
@@ -116,7 +117,6 @@ public class customerSystem {
         for(int c = 0; c<custCount; c++){
             if(ID.equals(customer[c][1])){
                 IDexist = true;
-            }else{
             }
         }
 
@@ -154,8 +154,7 @@ public class customerSystem {
     
         //Check if the ID has made an order
         for(int i = 0; i<orderCount; i++){
-            if(ID.equals(order[i][0])){
-            }else{
+            if (!ID.equals(order[i][0])) {
                 errorCount++;
             }
 
@@ -175,7 +174,7 @@ public class customerSystem {
                 }
             }
         }else{
-            System.out.println("Sorry, ID has not made an order yet!");
+            System.out.println("Sorry, ID has not made any order yet!");
         }
     }
 
@@ -205,15 +204,15 @@ public class customerSystem {
                 if(choice == 1){
                     System.out.print("Enter your new name: ");
                     customer[i][0] = in.nextLine(); 
-                    System.out.println("--- New name editied! ---");
+                    System.out.println("--- New name edited! ---");
                 }else if(choice == 2){
                     System.out.print("Enter your new Address: ");
                     customer[i][2] = in.nextLine(); 
-                    System.out.println("--- New address editied! ---");
+                    System.out.println("--- New address edited! ---");
                 } else if(choice == 3){
                     System.out.print("Enter your new Email: ");
                     customer[i][3] = in.next(); 
-                    System.out.println("--- New Email editied! ---");
+                    System.out.println("--- New Email edited! ---");
                 }else{
                     System.out.println("Editing cancelled!");
                 }
